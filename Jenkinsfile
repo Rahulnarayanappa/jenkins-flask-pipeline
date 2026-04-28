@@ -19,7 +19,7 @@ pipeline {
       steps {
         script { 
           docker.withRegistry('', 'docker-hub-creds') { 
-            sh 'docker push rahulnarayanappa/jenkins-flask:latest'
+                sh 'docker push rahulnarayanappa/jenkins-flask:latest'
           }
         }
       }
