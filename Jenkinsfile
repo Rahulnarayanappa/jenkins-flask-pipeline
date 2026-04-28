@@ -10,8 +10,8 @@ pipeline {
           }
     stage ('Test') {      
         steps {
-          sh 'pip3 install -r app/requirements.txt'
-          sh 'pytest app/test_app.py'
+          sh 'pip3 install -r app/requirements.txt  --break-system-packages'
+          sh 'python3 -m pytest app/test_app.py'
       }
     }
     stage ('Push to Docker Hub') {
