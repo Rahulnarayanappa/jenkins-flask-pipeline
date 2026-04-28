@@ -1,18 +1,17 @@
 pipeline {
-  agent {label 'docker-agent' }
+  agent {label 'slave-1' }
   stages { 
     stage ('Build') {
-      agent { label 'docker-agent' }
-      steps {
-        script { 
-          sh 'docker build -t rahulnarayanappa/jenkins-flask:latest .'
+          steps {
+            script { 
+                sh 'docker build -t rahulnarayanappa/jenkins-flask:latest .'
               }
             }
           }
     stage ('Test') {      
-      steps {
-        sh 'pip install -r app/requirements.txt'
-        sh 'pytest app/test_app.py'
+        steps {
+          sh 'pip install -r app/requirements.txt'
+          sh 'pytest app/test_app.py'
       }
     }
     stage ('Push to Docker Hub') {
