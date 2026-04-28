@@ -10,7 +10,7 @@ pipeline {
           }
     stage ('Test') {      
         steps {
-          sh 'pip install -r app/requirements.txt'
+          sh 'pip3 install -r app/requirements.txt'
           sh 'pytest app/test_app.py'
       }
     }
